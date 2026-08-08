@@ -143,7 +143,7 @@ return view.extend({
 		o.optional = true;
 
 		o = s.taboption('general', form.ListValue, 'zonename', _('Timezone'));
-		o.value('UTC');
+		o.value('Asia/Shanghai');
 
 		var zones = Object.keys(timezones || {}).sort();
 		for (var i = 0; i < zones.length; i++)
