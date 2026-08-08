@@ -1255,7 +1255,7 @@ return view.extend({
 					o.datatype    = 'uinteger';
 
 					o = ss.taboption('advanced', form.Flag, 'disassoc_low_ack', _('Disassociate On Low Acknowledgement'), _('Allow AP mode to disconnect STAs based on low ACK condition'));
-					o.default = o.enabled;
+					o.default = o.disabled;
 				}
 
 
