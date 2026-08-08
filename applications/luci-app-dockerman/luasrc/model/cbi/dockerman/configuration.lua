@@ -44,10 +44,19 @@ if nixio.fs.access("/usr/bin/dockerd") then
 	o.datatype = "ipaddr"
 	o:depends("remote_endpoint", 0)
 
+	o = s:option(Flag, "iptables",
+		translate("Enable iptables"),
+		translate("Enabling it will cause IPv6 blocking"))
+	o.rmempty = false
+	o:depends("remote_endpoint", 0)
+
 	o = s:option(DynamicList, "registry_mirrors",
 		translate("Registry Mirrors"),
 		translate("It replaces the daemon registry mirrors with a new set of registry mirrors"))
-	o.placeholder = translate("Example: https://hub-mirror.c.163.com")
+	o:value("http://dockerproxy.cn", "http://dockerproxy.cn")
+	o:value("https://docker-proxy.com", "https://docker-proxy.com")
+	o:value("http://dockerpull.com", "http://dockerpull.com")
+	o.placeholder = translate("Example: http://dockerproxy.cn")
 	o:depends("remote_endpoint", 0)
 
 	o = s:option(ListValue, "log_level",
